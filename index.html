@@ -1,0 +1,1117 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="description"
+        content="CareerForge AI — Your AI-powered career guidance platform. Get personalized learning roadmaps, project suggestions, interview questions, resume tips, and skill gap analysis for any tech role.">
+    <meta name="keywords"
+        content="career guidance, AI career, learning roadmap, interview preparation, skill gap analysis, resume tips">
+    <meta name="author" content="CareerForge AI">
+    <title>CareerForge AI — AI-Powered Career Guidance</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Audiowide&family=Instrument+Serif:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="resume-builder-style.css">
+    <style>
+        /* ── Role Title Gradient Animation ── */
+        @keyframes roleGradientFlow {
+            0%   { background-position: 0% 50%; }
+            50%  { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes roleGradientIn {
+            from { opacity: 0; transform: translateY(6px) scale(0.97); filter: blur(4px); }
+            to   { opacity: 1; transform: translateY(0) scale(1);    filter: blur(0); }
+        }
+        #dashboardRole {
+            background: linear-gradient(90deg, #a855f7, #6366f1, #3b82f6, #06b6d4, #10b981, #a855f7);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: roleGradientFlow 4s ease infinite, roleGradientIn 0.6s ease forwards;
+        }
+        #dashboardRole.role-restart {
+            animation: none;
+            opacity: 0;
+        }
+
+        
+
+        /* ── New project cards fade-in ── */
+        @keyframes cardFadeIn {
+            from { opacity: 0; transform: translateY(14px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .project-card.new-card {
+            animation: cardFadeIn 0.4s ease forwards;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- ═══════════════ NAVBAR ═══════════════ -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">CareerForge <span class="logo-accent">AI</span></span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#role-input" class="nav-link">Explore</a></li>
+                <li><a href="#dashboard" class="nav-link">Dashboard</a></li>
+                <li><a href="#resumeBuilderSection" class="nav-link">Resume Builder</a></li>
+                <li><a href="#history" class="nav-link">History</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ═══════════════ HERO SECTION ═══════════════ -->
+    <section class="hero" id="home">
+<div class="hero-bg-effects">
+            <div class="hero-orb hero-orb-1"></div>
+            <div class="hero-orb hero-orb-2"></div>
+            <div class="hero-orb hero-orb-3"></div>
+            <div class="hero-grid-lines"></div>
+            <div class="hero-beam"></div>
+            <div class="hero-particles">
+                <span class="particle" style="--x:10%;--delay:0s;--dur:7s;--size:4px;--opacity:0.7"></span>
+                <span class="particle" style="--x:22%;--delay:1.2s;--dur:9s;--size:3px;--opacity:0.5"></span>
+                <span class="particle" style="--x:38%;--delay:2.5s;--dur:6s;--size:5px;--opacity:0.6"></span>
+                <span class="particle" style="--x:50%;--delay:0.8s;--dur:11s;--size:3px;--opacity:0.4"></span>
+                <span class="particle" style="--x:63%;--delay:3.1s;--dur:8s;--size:4px;--opacity:0.65"></span>
+                <span class="particle" style="--x:75%;--delay:1.7s;--dur:7.5s;--size:6px;--opacity:0.35"></span>
+                <span class="particle" style="--x:85%;--delay:0.4s;--dur:10s;--size:3px;--opacity:0.55"></span>
+                <span class="particle" style="--x:92%;--delay:2s;--dur:8.5s;--size:4px;--opacity:0.5"></span>
+                <span class="particle particle-cyan" style="--x:18%;--delay:1s;--dur:9s;--size:3px;--opacity:0.6"></span>
+                <span class="particle particle-cyan" style="--x:45%;--delay:3.5s;--dur:7s;--size:5px;--opacity:0.45"></span>
+                <span class="particle particle-cyan" style="--x:70%;--delay:0.6s;--dur:11s;--size:3px;--opacity:0.55"></span>
+                <span class="particle particle-cyan" style="--x:88%;--delay:2.8s;--dur:6.5s;--size:4px;--opacity:0.4"></span>
+            </div>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Forge Your Dream Career with <span class="shimmer-text">AI</span>
+            </h1>
+            <p class="hero-subtitle">
+                CareerForge AI helps students and job seekers build personalized career roadmaps,
+                discover projects, analyze skill gaps, prepare for placements, and optimize resumes
+                using intelligent AI guidance.
+            </p>
+            <div class="hero-cta-group">
+                <a href="#role-input" class="btn btn-primary btn-lg">
+                    <span>Start Your Journey</span>
+                    <svg class="btn-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </a>
+                <a href="#dashboard" class="btn btn-ghost btn-lg">
+                    <span>View Demo</span>
+                </a>
+            </div>
+
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number" data-count="7">0</span><span class="stat-plus">+</span>
+                    <span class="stat-label">Career Roles</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="50">0</span><span class="stat-plus">+</span>
+                    <span class="stat-label">Project Ideas</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="200">0</span><span class="stat-plus">+</span>
+                    <span class="stat-label">Interview Questions</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-mouse">
+                <div class="scroll-dot"></div>
+            </div>
+            <span>Scroll to explore</span>
+        </div>
+    </section>
+
+    <!-- ═══════════════ HERO FEATURES SECTION ═══════════════ -->
+    <section class="hero-features-section">
+        <div class="container">
+            <div class="hero-features">
+                <div class="feature-item">
+                    <div class="feature-icon">🧠</div>
+                    <h3 class="feature-title">AI-Powered Insights</h3>
+                    <p class="feature-desc">Get intelligent career recommendations tailored to your skills and goals.
+                    </p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📈</div>
+                    <h3 class="feature-title">Skill Gap Analysis</h3>
+                    <p class="feature-desc">Identify and bridge the gaps in your knowledge with personalized learning
+                        paths.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🎯</div>
+                    <h3 class="feature-title">Project Portfolios</h3>
+                    <p class="feature-desc">Build impressive portfolios with curated project ideas for any tech role.
+                    </p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💼</div>
+                    <h3 class="feature-title">Interview Mastery</h3>
+                    <p class="feature-desc">Practice with role-specific questions and get resume optimization tips.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ METRICS TICKER ═══════════════ -->
+    <section class="section metrics-ticker-section">
+        <div class="container">
+            <div class="ticker-card glass-card">
+                <div class="ticker-track" aria-hidden="true">
+                    <span class="ticker-item">7+ AI career paths mapped</span>
+                    <span class="ticker-item">50+ custom project blueprints</span>
+                    <span class="ticker-item">200+ interview questions refined</span>
+                    <span class="ticker-item">99% roadmap satisfaction rate</span>
+                    <span class="ticker-item">24/7 intelligent career guidance</span>
+                    <span class="ticker-item">7+ AI career paths mapped</span>
+                    <span class="ticker-item">50+ custom project blueprints</span>
+                    <span class="ticker-item">200+ interview questions refined</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ ROLE INPUT SECTION ═══════════════ -->
+    <section class="section role-input-section" id="role-input">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">🎯 Get Started</span>
+                <h2 class="section-title">Choose Your <span class="gradient-text">Career Path</span></h2>
+                <p class="section-desc">Enter the job role you're targeting and let our AI craft a complete career
+                    blueprint for you.</p>
+            </div>
+
+            <div class="role-form-card glass-card">
+                <form id="roleForm" class="role-form" autocomplete="off">
+                    <div class="input-group">
+                        <div class="input-wrapper">
+                            <svg class="input-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8" />
+                                <path d="M21 21l-4.35-4.35" />
+                            </svg>
+                            <input type="text" id="roleInput" class="role-input"
+                                placeholder="e.g. Frontend Developer, AI Engineer..." required>
+                            <div class="suggestions-dropdown" id="suggestionsDropdown">
+                                <!-- populated dynamically -->
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-generate" id="generateBtn">
+                            <span class="btn-text">Generate Plan</span>
+                            <span class="btn-loader" id="btnLoader">
+                                <span class="spinner"></span>
+                            </span>
+                        </button>
+                    </div>
+
+                    <div class="skills-input-group" id="skillsGroup">
+                        <label class="skills-label">Your Current Skills <span class="optional-tag">(optional — for skill
+                                gap analysis)</span></label>
+                        <div class="skills-tags" id="skillsTags">
+                            <!-- dynamically added skill tags -->
+                        </div>
+                        <input type="text" id="skillsInput" class="skills-input"
+                            placeholder="Type a skill and press Enter (e.g. HTML, React, Python...)">
+                    </div>
+                </form>
+
+                <div class="quick-roles">
+                    <span class="quick-label">Quick select:</span>
+                    <div class="quick-role-chips">
+                        <button class="chip" data-role="Frontend Developer">Frontend Developer</button>
+                        <button class="chip" data-role="Backend Developer">Backend Developer</button>
+                        <button class="chip" data-role="Full Stack Developer">Full Stack Developer</button>
+                        <button class="chip" data-role="AI / ML Engineer">AI / ML Engineer</button>
+                        <button class="chip" data-role="Data Analyst">Data Analyst</button>
+                        <button class="chip" data-role="Cyber Security Analyst">Cyber Security Analyst</button>
+                        <button class="chip" data-role="Software Engineer">Software Engineer</button>
+                        <button class="chip" data-role="DevOps / Cloud Engineer">DevOps / Cloud Engineer</button>
+                        <button class="chip" data-role="Mobile Developer">Mobile Developer</button>
+                        <button class="chip" data-role="UI/UX Designer">UI/UX Designer</button>
+                        <button class="chip" data-role="Blockchain Developer">Blockchain Developer</button>
+                        <button class="chip" data-role="QA / Test Engineer">QA / Test Engineer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ LOADING STATE ═══════════════ -->
+    <section class="section loading-section" id="loadingSection" style="display:none;">
+        <div class="container">
+            <div class="loading-card glass-card">
+                <div class="loading-animation">
+                    <div class="loading-ring">
+                        <div class="ring-segment"></div>
+                        <div class="ring-segment"></div>
+                        <div class="ring-segment"></div>
+                    </div>
+                    <span class="loading-icon">🤖</span>
+                </div>
+                <h3 class="loading-title">AI is crafting your career plan...</h3>
+                <p class="loading-subtitle" id="loadingStatus">Analyzing role requirements</p>
+                <div class="loading-progress">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+                <div class="loading-steps">
+                    <div class="load-step active" id="step1">
+                        <span class="step-check">✓</span>
+                        <span>Analyzing Role</span>
+                    </div>
+                    <div class="load-step" id="step2">
+                        <span class="step-check">✓</span>
+                        <span>Building Roadmap</span>
+                    </div>
+                    <div class="load-step" id="step3">
+                        <span class="step-check">✓</span>
+                        <span>Curating Projects</span>
+                    </div>
+                    <div class="load-step" id="step4">
+                        <span class="step-check">✓</span>
+                        <span>Generating Questions</span>
+                    </div>
+                    <div class="load-step" id="step5">
+                        <span class="step-check">✓</span>
+                        <span>Finalizing Plan</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ DASHBOARD ═══════════════ -->
+    <section class="section dashboard-section" id="dashboard" style="display:none;">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">📊 Your Career Blueprint</span>
+                <h2 class="section-title">Results for <span class="gradient-text" id="dashboardRole">—</span></h2>
+                <p class="section-desc">Your personalized AI-generated career plan is ready. Explore each section below.
+                </p>
+            </div>
+
+            <!-- Dashboard Overview Cards -->
+            <div class="dashboard-overview">
+                <div class="overview-card glass-card" data-target="roadmapSection">
+                    <div class="overview-icon">🗺️</div>
+                    <div class="overview-info">
+                        <h4>Learning Roadmap</h4>
+                        <p id="roadmapCount">0 milestones</p>
+                    </div>
+                    <svg class="overview-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg>
+                </div>
+                <div class="overview-card glass-card" data-target="projectsSection">
+                    <div class="overview-icon">💡</div>
+                    <div class="overview-info">
+                        <h4>Projects</h4>
+                        <p id="projectsCount">0 suggestions</p>
+                    </div>
+                    <svg class="overview-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg>
+                </div>
+                <div class="overview-card glass-card" data-target="questionsSection">
+                    <div class="overview-icon">❓</div>
+                    <div class="overview-info">
+                        <h4>Interview Prep</h4>
+                        <p id="questionsCount">0 questions</p>
+                    </div>
+                    <svg class="overview-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg>
+                </div>
+                <div class="overview-card glass-card" data-target="resumeSection">
+                    <div class="overview-icon">📄</div>
+                    <div class="overview-info">
+                        <h4>Resume Tips</h4>
+                        <p id="resumeCount">0 tips</p>
+                    </div>
+                    <svg class="overview-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg>
+                </div>
+                <div class="overview-card glass-card" data-target="skillGapSection">
+                    <div class="overview-icon">📈</div>
+                    <div class="overview-info">
+                        <h4>Skill Gap</h4>
+                        <p id="skillGapCount">0 skills to learn</p>
+                    </div>
+                    <svg class="overview-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg>
+                </div>
+                <div class="overview-card glass-card" data-target="resumeBuilderSection">
+                    <div class="overview-icon">📝</div>
+                    <div class="overview-info">
+                        <h4>Resume Builder</h4>
+                        <p>Build & download</p>
+                    </div>
+                    <svg class="overview-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg>
+                </div>
+                <div class="overview-card glass-card" data-target="atsSection">
+                    <div class="overview-icon">🎯</div>
+                    <div class="overview-info">
+                        <h4>ATS Checker</h4>
+                        <p id="atsScoreCount">Upload resume</p>
+                    </div>
+                    <svg class="overview-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg>
+                </div>
+            </div>
+
+            <!-- ═══ ROADMAP SECTION ═══ -->
+            <div class="result-block" id="roadmapSection">
+                <div class="result-header">
+                    <h3 class="result-title"><span class="result-icon">🗺️</span> Learning Roadmap</h3>
+                    <button class="btn btn-sm btn-ghost" onclick="copySection('roadmap')">Copy</button>
+                </div>
+                <div class="roadmap-timeline" id="roadmapTimeline">
+                    <!-- Skeleton placeholders -->
+                    <div class="skeleton-card">
+                        <div class="skeleton-line w80"></div>
+                        <div class="skeleton-line w60"></div>
+                        <div class="skeleton-line w40"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ═══ PROJECTS SECTION ═══ -->
+            <div class="result-block" id="projectsSection">
+                <div class="result-header">
+                    <h3 class="result-title"><span class="result-icon">💡</span> Recommended Projects</h3>
+                    <button class="btn btn-sm btn-ghost" onclick="copySection('projects')">Copy</button>
+                </div>
+                <div class="projects-grid" id="projectsGrid">
+                    <div class="skeleton-card">
+                        <div class="skeleton-line w80"></div>
+                        <div class="skeleton-line w60"></div>
+                        <div class="skeleton-line w40"></div>
+                    </div>
+                </div>
+                </div>
+
+            <!-- ═══ QUESTIONS SECTION ═══ -->
+            <div class="result-block" id="questionsSection">
+                <div class="result-header">
+                    <h3 class="result-title"><span class="result-icon">❓</span> Interview Questions</h3>
+                    <button class="btn btn-sm btn-ghost" onclick="copySection('questions')">Copy</button>
+                </div>
+                <div class="questions-list" id="questionsList">
+                    <div class="skeleton-card">
+                        <div class="skeleton-line w80"></div>
+                        <div class="skeleton-line w60"></div>
+                    </div>
+                </div>
+                <div class="question-actions">
+                    <button class="btn btn-sm btn-ghost" id="viewMoreQuestionsBtn" type="button">View more
+                        questions</button>
+                    <button class="btn btn-sm btn-primary" id="regenerateQuestionsBtn" type="button"
+                        style="display:inline-flex;">Refresh Questions</button>
+                </div>
+            </div>
+
+            <!-- ═══ RESUME TIPS SECTION ═══ -->
+            <div class="result-block" id="resumeSection">
+                <div class="result-header">
+                    <h3 class="result-title"><span class="result-icon">📄</span> Resume Tips</h3>
+                    <button class="btn btn-sm btn-ghost" onclick="copySection('resume')">Copy</button>
+                </div>
+                <div class="resume-tips-list" id="resumeTipsList">
+                    <div class="skeleton-card">
+                        <div class="skeleton-line w80"></div>
+                        <div class="skeleton-line w60"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ═══ RESUME BUILDER SECTION ═══ -->
+            <div class="result-block" id="resumeBuilderSection">
+                <div class="result-header">
+                    <h3 class="result-title"><span class="result-icon">📝</span> Resume Builder</h3>
+                    <span class="ats-beta-tag">AI Powered</span>
+                </div>
+
+                <!-- Tab Switcher -->
+                <div class="rb-tabs">
+                    <button class="rb-tab-btn active" data-panel="rb-panel-build">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                        Build Resume
+                    </button>
+                    <button class="rb-tab-btn" data-panel="rb-panel-preview">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                        Live Preview
+                    </button>
+                </div>
+
+                <!-- ─── PANEL: BUILD (6-Step Form) ─── -->
+                <div class="rb-panel active" id="rb-panel-build">
+
+                    <!-- Progress -->
+                    <div class="rb-progress-wrap">
+                        <div class="rb-progress-header">
+                            <span class="rb-step-label">Step <span id="rb-header-step">1</span> of 7</span>
+                            <div class="rb-step-dots" id="rb-step-dots"></div>
+                        </div>
+                        <div class="rb-progress-track">
+                            <div class="rb-progress-fill" id="rb-progress-fill"></div>
+                        </div>
+                    </div>
+
+                    <!-- Step 1: Personal Info -->
+                    <div class="rb-form-step active" data-step="1">
+                        <div class="rb-step-header">
+                            <div class="rb-step-tag">Step 01</div>
+                            <h3>Personal <em>Info</em></h3>
+                            <p>Your basic contact and identity details.</p>
+                        </div>
+                        <div class="rb-fields-grid">
+                            <div class="rb-field-group">
+                                <label for="rb-firstName">First Name</label>
+                                <input type="text" id="rb-firstName" placeholder="e.g. Debjeet" autocomplete="given-name">
+                            </div>
+                            <div class="rb-field-group">
+                                <label for="rb-lastName">Last Name</label>
+                                <input type="text" id="rb-lastName" placeholder="e.g. Nandi" autocomplete="family-name">
+                            </div>
+                            <div class="rb-field-group full">
+                                <label for="rb-jobTitle">Professional Title</label>
+                                <input type="text" id="rb-jobTitle" placeholder="e.g. Full Stack Developer / B.Tech CSE Student">
+                            </div>
+                            <div class="rb-field-group">
+                                <label for="rb-email">Email</label>
+                                <input type="email" id="rb-email" placeholder="you@email.com" autocomplete="email">
+                            </div>
+                            <div class="rb-field-group">
+                                <label for="rb-phone">Phone</label>
+                                <input type="tel" id="rb-phone" placeholder="+91 98765 43210" autocomplete="tel">
+                            </div>
+                            <div class="rb-field-group">
+                                <label for="rb-location">City / Location</label>
+                                <input type="text" id="rb-location" placeholder="e.g. Kolkata, West Bengal">
+                            </div>
+                            <div class="rb-field-group">
+                                <label for="rb-address">Full Address</label>
+                                <input type="text" id="rb-address" placeholder="e.g. Vill. Ladhurka, Dist. Purulia, WB - 723148">
+                            </div>
+                            <div class="rb-field-group">
+                                <label for="rb-linkedin">LinkedIn URL</label>
+                                <input type="url" id="rb-linkedin" placeholder="https://linkedin.com/in/...">
+                            </div>
+                            <div class="rb-field-group">
+                                <label for="rb-github">GitHub URL</label>
+                                <input type="url" id="rb-github" placeholder="https://github.com/...">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Profile -->
+                    <div class="rb-form-step" data-step="2">
+                        <div class="rb-step-header">
+                            <div class="rb-step-tag">Step 02</div>
+                            <h3>Profile <em>Summary</em></h3>
+                            <p>Tell recruiters about yourself and your goals.</p>
+                        </div>
+                        <div style="display:flex;flex-direction:column;gap:16px;">
+                            <div class="rb-field-group">
+                                <label for="rb-aboutMe">About Me</label>
+                                <textarea id="rb-aboutMe" rows="4" placeholder="I am a final-year Computer Science student with strong front-end skills…"></textarea>
+                            </div>
+                            <div class="rb-field-group">
+                                <label for="rb-careerObjective">Career Objective</label>
+                                <textarea id="rb-careerObjective" rows="4" placeholder="Aspiring full-stack web developer with a solid foundation in HTML, CSS, JavaScript…"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Work Experience -->
+                    <div class="rb-form-step" data-step="3">
+                        <div class="rb-step-header">
+                            <div class="rb-step-tag">Step 03</div>
+                            <h3>Work <em>Experience</em></h3>
+                            <p>Add your most recent roles first. Skip if fresher.</p>
+                        </div>
+                        <div class="rb-entry-list" id="rb-experienceList"></div>
+                        <button type="button" class="rb-btn-add" id="rb-addExperience">
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                            Add Experience
+                        </button>
+                    </div>
+
+                    <!-- Step 4: Education -->
+                    <div class="rb-form-step" data-step="4">
+                        <div class="rb-step-header">
+                            <div class="rb-step-tag">Step 04</div>
+                            <h3>Education</h3>
+                            <p>Your academic background and qualifications.</p>
+                        </div>
+                        <div class="rb-entry-list" id="rb-educationList"></div>
+                        <button type="button" class="rb-btn-add" id="rb-addEducation">
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                            Add Education
+                        </button>
+                    </div>
+
+                    <!-- Step 5: Skills, Languages, Certificates -->
+                    <div class="rb-form-step" data-step="5">
+                        <div class="rb-step-header">
+                            <div class="rb-step-tag">Step 05</div>
+                            <h3>Skills &amp; <em>Credentials</em></h3>
+                            <p>Add skills, languages, and certificates. Press Enter after each.</p>
+                        </div>
+                        <div style="display:flex;flex-direction:column;gap:16px;">
+                            <div class="rb-field-group">
+                                <label>Technical Skills</label>
+                                <div class="rb-tag-wrap" id="rb-techSkillsWrap">
+                                    <div id="rb-techTagsDisplay" style="display:contents"></div>
+                                    <input type="text" id="rb-techSkillInput" class="rb-tag-input" placeholder="e.g. HTML, CSS, Node.js — press Enter">
+                                </div>
+                                <span class="rb-field-error" id="rb-techSkillsError"></span>
+                            </div>
+                            <div class="rb-field-group">
+                                <label>Soft Skills</label>
+                                <div class="rb-tag-wrap">
+                                    <div id="rb-softTagsDisplay" style="display:contents"></div>
+                                    <input type="text" id="rb-softSkillInput" class="rb-tag-input" placeholder="e.g. Communication, Adaptability">
+                                </div>
+                            </div>
+                            <div class="rb-field-group">
+                                <label>Languages Known</label>
+                                <div class="rb-tag-wrap">
+                                    <div id="rb-langTagsDisplay" style="display:contents"></div>
+                                    <input type="text" id="rb-langInput" class="rb-tag-input" placeholder="e.g. English, Bengali, Hindi">
+                                </div>
+                            </div>
+                            <div class="rb-field-group">
+                                <label>Certificates &amp; Courses</label>
+                                <div class="rb-tag-wrap">
+                                    <div id="rb-certTagsDisplay" style="display:contents"></div>
+                                    <input type="text" id="rb-certInput" class="rb-tag-input" placeholder="e.g. AWS Cloud Foundations — press Enter">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 6: Projects, Achievements, Declaration -->
+                    <div class="rb-form-step" data-step="6">
+                        <div class="rb-step-header">
+                            <div class="rb-step-tag">Step 06</div>
+                            <h3>Projects, Achievements <em>&amp; More</em></h3>
+                            <p>Showcase your work, wins, and add a declaration.</p>
+                        </div>
+                        <div style="display:flex;flex-direction:column;gap:20px;">
+                            <div>
+                                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+                                    <label style="font-size:0.82rem;font-weight:600;color:rgba(255,255,255,0.7);letter-spacing:0.03em;">Projects</label>
+                                    <button type="button" class="rb-btn-add-sm" id="rb-addProject">+ Add Project</button>
+                                </div>
+                                <div id="rb-projectList" style="display:flex;flex-direction:column;gap:10px;"></div>
+                            </div>
+                            <div>
+                                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+                                    <label style="font-size:0.82rem;font-weight:600;color:rgba(255,255,255,0.7);letter-spacing:0.03em;">Achievements</label>
+                                    <button type="button" class="rb-btn-add-sm" id="rb-addAchievement">+ Add Achievement</button>
+                                </div>
+                                <div id="rb-achievementList" style="display:flex;flex-direction:column;gap:8px;"></div>
+                            </div>
+                            <div class="rb-field-group">
+                                <label for="rb-declaration">Declaration <span style="font-size:0.72rem;color:rgba(255,255,255,0.3);font-weight:400;">(optional)</span></label>
+                                <textarea id="rb-declaration" rows="3" placeholder="I affirm that all the information provided in this resume is true and correct to the best of my knowledge."></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 7: Choose Style & Live Preview -->
+                    <div class="rb-form-step" data-step="7">
+                        <div class="rb-step-header">
+                            <div class="rb-step-tag">Step 07</div>
+                            <h3>Choose Your <em>Style</em></h3>
+                            <p>Pick a template — your resume updates live on the right.</p>
+                        </div>
+
+                        <!-- Two-column: style picker left, live preview right -->
+                        <div class="rb-style-layout">
+
+                            <!-- LEFT: Template Cards -->
+                            <div class="rb-style-picker">
+                                <div class="rb-style-grid" id="rb-style-grid">
+
+                                    <div class="rb-style-card selected" data-style="executive" tabindex="0">
+                                        <div class="rb-style-thumb rb-thumb-executive">
+                                            <div class="rb-thumb-bar"></div>
+                                            <div class="rb-thumb-lines">
+                                                <span class="rb-thumb-l1"></span><span class="rb-thumb-l2"></span>
+                                                <span class="rb-thumb-l3"></span><span class="rb-thumb-l4"></span>
+                                            </div>
+                                        </div>
+                                        <div class="rb-style-info">
+                                            <div class="rb-style-name">Executive</div>
+                                            <div class="rb-style-desc">Classic corporate, navy header</div>
+                                        </div>
+                                        <div class="rb-style-check"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg></div>
+                                    </div>
+
+                                    <div class="rb-style-card" data-style="modern" tabindex="0">
+                                        <div class="rb-style-thumb rb-thumb-modern">
+                                            <div class="rb-thumb-sidebar"></div>
+                                            <div class="rb-thumb-main">
+                                                <span class="rb-thumb-l1"></span><span class="rb-thumb-l2"></span>
+                                                <span class="rb-thumb-l3"></span>
+                                            </div>
+                                        </div>
+                                        <div class="rb-style-info">
+                                            <div class="rb-style-name">Modern</div>
+                                            <div class="rb-style-desc">Two-column, dark sidebar</div>
+                                        </div>
+                                        <div class="rb-style-check"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg></div>
+                                    </div>
+
+                                    <div class="rb-style-card" data-style="minimal" tabindex="0">
+                                        <div class="rb-style-thumb rb-thumb-minimal">
+                                            <div class="rb-thumb-name-big"></div>
+                                            <div class="rb-thumb-rule"></div>
+                                            <span class="rb-thumb-l1"></span><span class="rb-thumb-l2"></span><span class="rb-thumb-l3"></span>
+                                        </div>
+                                        <div class="rb-style-info">
+                                            <div class="rb-style-name">Minimalist</div>
+                                            <div class="rb-style-desc">Ultra-clean, typography-led</div>
+                                        </div>
+                                        <div class="rb-style-check"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg></div>
+                                    </div>
+
+                                    <div class="rb-style-card" data-style="creative" tabindex="0">
+                                        <div class="rb-style-thumb rb-thumb-creative">
+                                            <div class="rb-thumb-circle"></div>
+                                            <div class="rb-thumb-lines">
+                                                <span class="rb-thumb-l1"></span><span class="rb-thumb-l2"></span>
+                                                <span class="rb-thumb-l3"></span><span class="rb-thumb-l4"></span>
+                                            </div>
+                                        </div>
+                                        <div class="rb-style-info">
+                                            <div class="rb-style-name">Creative</div>
+                                            <div class="rb-style-desc">Bold gradient, vibrant accent</div>
+                                        </div>
+                                        <div class="rb-style-check"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg></div>
+                                    </div>
+
+                                    <div class="rb-style-card" data-style="corporate" tabindex="0">
+                                        <div class="rb-style-thumb rb-thumb-corporate">
+                                            <div class="rb-thumb-border-left"></div>
+                                            <div class="rb-thumb-lines">
+                                                <span class="rb-thumb-l1"></span><span class="rb-thumb-l2"></span>
+                                                <span class="rb-thumb-l3"></span><span class="rb-thumb-l4"></span>
+                                            </div>
+                                        </div>
+                                        <div class="rb-style-info">
+                                            <div class="rb-style-name">Corporate</div>
+                                            <div class="rb-style-desc">Structured, border-accented</div>
+                                        </div>
+                                        <div class="rb-style-check"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg></div>
+                                    </div>
+
+                                    <div class="rb-style-card" data-style="tech" tabindex="0">
+                                        <div class="rb-style-thumb rb-thumb-tech">
+                                            <div class="rb-thumb-code-header"></div>
+                                            <div class="rb-thumb-lines">
+                                                <span class="rb-thumb-l1 green"></span><span class="rb-thumb-l2"></span>
+                                                <span class="rb-thumb-l3"></span><span class="rb-thumb-l4"></span>
+                                            </div>
+                                        </div>
+                                        <div class="rb-style-info">
+                                            <div class="rb-style-name">Tech / Dev</div>
+                                            <div class="rb-style-desc">Developer-focused, green accent</div>
+                                        </div>
+                                        <div class="rb-style-check"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg></div>
+                                    </div>
+
+                                </div>
+
+                                <!-- Generate button -->
+                                <button class="rb-generate-pdf-btn" id="rb-btn-generate">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1v9M5 7l3 3 3-3M1 13h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                    Generate Resume PDF
+                                </button>
+                            </div>
+
+                            <!-- RIGHT: Live Preview -->
+                            <div class="rb-live-preview-panel">
+                                <div class="rb-live-preview-label">
+                                    <span class="rb-lp-dot"></span>
+                                    Live Preview
+                                    <span id="rb-preview-style-name" style="margin-left:auto;font-size:0.75em;opacity:0.5;font-weight:400;">Executive</span>
+                                </div>
+                                <div class="rb-live-preview-frame" id="rb-live-preview-frame">
+                                    <!-- Dynamically rendered resume HTML -->
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Nav Buttons -->
+                    <div class="rb-form-nav">
+                        <button class="rb-btn-prev" id="rb-btn-prev" disabled>
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Back
+                        </button>
+                        <button class="rb-btn-next" id="rb-btn-next">
+                            Continue
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </button>
+                    </div>
+
+
+                </div><!-- end rb-panel-build -->
+
+                <!-- PDF Export Overlay -->
+                <div class="rb-pdf-overlay" id="rb-pdf-overlay">
+                    <div class="rb-pdf-card">
+                        <div class="rb-pdf-spinner"></div>
+                        <div class="rb-pdf-title">Generating PDF</div>
+                        <div class="rb-pdf-sub" id="rb-pdf-overlay-sub">Preparing resume…</div>
+                        <div class="rb-pdf-progress-track"><div class="rb-pdf-progress-fill" id="rb-pdf-progress-fill"></div></div>
+                    </div>
+                </div>
+
+            </div><!-- end #resumeBuilderSection -->
+
+            <!-- ═══ ATS RESUME CHECKER ═══ -->
+            <div class="result-block" id="atsSection">
+                <div class="result-header">
+                    <h3 class="result-title"><span class="result-icon">🎯</span> ATS Resume Checker</h3>
+                    <span class="ats-beta-tag">AI Powered</span>
+                </div>
+
+                <!-- Upload Zone -->
+                <div class="ats-upload-zone glass-card" id="atsUploadZone">
+                    <div class="ats-upload-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                            <polyline points="17 8 12 3 7 8"/>
+                            <line x1="12" y1="3" x2="12" y2="15"/>
+                        </svg>
+                    </div>
+                    <p class="ats-upload-title">Drop your resume here</p>
+                    <p class="ats-upload-sub">Supports PDF and DOCX · Max 5MB</p>
+                    <label class="btn btn-primary ats-upload-btn" for="atsFileInput">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                            <polyline points="17 8 12 3 7 8"/>
+                            <line x1="12" y1="3" x2="12" y2="15"/>
+                        </svg>
+                        <span>Upload Resume</span>
+                    </label>
+                    <input type="file" id="atsFileInput" accept=".pdf,.docx" style="display:none">
+                    <p class="ats-file-name" id="atsFileName"></p>
+                </div>
+
+                <!-- Analyze Button -->
+                <div class="ats-analyze-row" id="atsAnalyzeRow" style="display:none">
+                    <button class="btn btn-primary" id="atsAnalyzeBtn" onclick="runATSAnalysis()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+                        </svg>
+                        <span>Analyze Resume</span>
+                    </button>
+                    <button class="btn btn-ghost btn-sm" onclick="resetATSChecker()">Clear</button>
+                </div>
+
+                <!-- Results (hidden until analyzed) -->
+                <div class="ats-results" id="atsResults" style="display:none">
+
+                    <!-- AI Loading indicator -->
+                    <div class="ats-ai-loading" id="atsAILoading" style="display:none">
+                        <div class="ats-ai-loading-inner glass-card">
+                            <div class="ats-ai-spinner"></div>
+                            <p id="atsAILoadingText">AI is evaluating your resume...</p>
+                        </div>
+                    </div>
+
+                    <!-- Score Ring -->
+                    <div class="ats-score-card glass-card">
+                        <div class="ats-score-ring-wrap">
+                            <svg class="ats-ring" viewBox="0 0 120 120" width="120" height="120">
+                                <circle class="ats-ring-bg" cx="60" cy="60" r="50" fill="none" stroke-width="10"/>
+                                <circle class="ats-ring-fill" id="atsRingFill" cx="60" cy="60" r="50" fill="none" stroke-width="10"
+                                    stroke-dasharray="314" stroke-dashoffset="314"
+                                    stroke-linecap="round" transform="rotate(-90 60 60)"/>
+                            </svg>
+                            <div class="ats-score-center">
+                                <span class="ats-score-num" id="atsScoreNum">0</span>
+                                <span class="ats-score-denom">/100</span>
+                            </div>
+                        </div>
+                        <div class="ats-score-info">
+                            <h4 class="ats-score-label" id="atsScoreLabel">Overall Score</h4>
+                            <p class="ats-score-desc" id="atsScoreDesc">Analyzing your resume...</p>
+                            <div class="ats-score-bars">
+                                <div class="ats-mini-bar-row">
+                                    <span>Practical Skills</span>
+                                    <div class="ats-mini-track"><div class="ats-mini-fill" id="atsBarKeyword"></div></div>
+                                    <span class="ats-mini-val" id="atsValKeyword">0%</span>
+                                </div>
+                                <div class="ats-mini-bar-row">
+                                    <span>Project Quality</span>
+                                    <div class="ats-mini-track"><div class="ats-mini-fill" id="atsBarSkills"></div></div>
+                                    <span class="ats-mini-val" id="atsValSkills">0%</span>
+                                </div>
+                                <div class="ats-mini-bar-row">
+                                    <span>Industry Readiness</span>
+                                    <div class="ats-mini-track"><div class="ats-mini-fill" id="atsBarStructure"></div></div>
+                                    <span class="ats-mini-val" id="atsValStructure">0%</span>
+                                </div>
+                                <div class="ats-mini-bar-row">
+                                    <span>Impact & Achievements</span>
+                                    <div class="ats-mini-track"><div class="ats-mini-fill" id="atsBarImpact"></div></div>
+                                    <span class="ats-mini-val" id="atsValImpact">0%</span>
+                                </div>
+                                <div class="ats-mini-bar-row">
+                                    <span>ATS Keywords</span>
+                                    <div class="ats-mini-track"><div class="ats-mini-fill" id="atsBarATS"></div></div>
+                                    <span class="ats-mini-val" id="atsValATS">0%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Job Readiness Badge -->
+                    <div class="ats-readiness-card glass-card" id="atsReadinessCard">
+                        <div class="ats-readiness-badge" id="atsReadinessBadge">—</div>
+                        <div class="ats-readiness-info">
+                            <h4>📈 Job-Readiness Level</h4>
+                            <p id="atsReadinessDesc">Evaluating your profile...</p>
+                        </div>
+                    </div>
+
+                    <!-- AI Real-World Evaluation -->
+                    <div class="ats-block ats-ai-block">
+                        <h4 class="ats-block-title">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+                            🧠 Real-World Evaluation
+                        </h4>
+                        <div class="ats-ai-insights" id="atsRealWorldEval">
+                            <p class="ats-ai-placeholder">AI insights will appear here after analysis...</p>
+                        </div>
+                    </div>
+
+                    <!-- Role Match Analysis -->
+                    <div class="ats-block ats-ai-block">
+                        <h4 class="ats-block-title">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                            🧩 Role Match Analysis
+                        </h4>
+                        <div class="ats-role-match" id="atsRoleMatch">
+                            <p class="ats-ai-placeholder">Role analysis will appear here...</p>
+                        </div>
+                    </div>
+
+                    <!-- Keyword Analysis -->
+                    <div class="ats-block">
+                        <h4 class="ats-block-title">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                            Keyword Match Analysis
+                        </h4>
+                        <div class="ats-keywords-grid">
+                            <div class="ats-kw-col">
+                                <p class="ats-kw-heading ats-kw-matched">✔ Matched Keywords</p>
+                                <div class="ats-kw-list" id="atsMatchedList"></div>
+                            </div>
+                            <div class="ats-kw-col">
+                                <p class="ats-kw-heading ats-kw-missing">✖ Missing Keywords</p>
+                                <div class="ats-kw-list" id="atsMissingList"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Improvement Suggestions -->
+                    <div class="ats-block">
+                        <h4 class="ats-block-title">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                            Improvement Suggestions
+                        </h4>
+                        <div class="ats-suggestions-grid ats-suggestions-single">
+                            <div class="ats-suggestion-card ats-suggestion-add glass-card">
+                                <p class="ats-sug-heading">🚀 What You Should Add</p>
+                                <ul class="ats-sug-list" id="atsAddList"></ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Structure Feedback -->
+                    <div class="ats-block">
+                        <h4 class="ats-block-title">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                            Structure Feedback
+                        </h4>
+                        <div class="ats-structure-grid" id="atsStructureGrid"></div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ═══ SKILL GAP SECTION ═══ -->
+            <div class="result-block" id="skillGapSection">
+                <div class="result-header">
+                    <h3 class="result-title"><span class="result-icon">📈</span> Skill Gap Analysis</h3>
+                    <button class="btn btn-sm btn-ghost" onclick="copySection('skillgap')">Copy</button>
+                </div>
+                <div class="skill-gap-grid" id="skillGapGrid">
+                    <div class="skeleton-card">
+                        <div class="skeleton-line w80"></div>
+                        <div class="skeleton-line w60"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ═══ YOUTUBE RESOURCES SECTION ═══ -->
+            <div class="result-block" id="youtubeSection">
+                <div class="result-header">
+                    <h3 class="result-title"><span class="result-icon">▶️</span> YouTube Learning Resources</h3>
+                    <span class="ats-beta-tag">Free Courses</span>
+                </div>
+                <p class="youtube-section-desc">Curated playlists from top educators — filtered for your role.</p>
+                <div class="youtube-grid" id="youtubeGrid">
+                    <div class="skeleton-card">
+                        <div class="skeleton-line w80"></div>
+                        <div class="skeleton-line w60"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Download / Share -->
+            <div class="dashboard-actions">
+                <button class="btn btn-primary" id="downloadPlanBtn" onclick="downloadPDF()">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                    <span>Export as PDF</span>
+                </button>
+                <button class="btn btn-ghost" onclick="refreshYoutubeResources()">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M1 4v6h6M23 20v-6h-6" />
+                        <path d="M20.49 9A9 9 0 005.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 013.51 15" />
+                    </svg>
+                    <span>Refresh YouTube</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ SEARCH HISTORY ═══════════════ -->
+    <section class="section history-section" id="history">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">🕒 Recent Searches</span>
+                <h2 class="section-title">Your <span class="gradient-text">Search History</span></h2>
+                <p class="section-desc">Quickly revisit your previous career explorations.</p>
+            </div>
+            <div class="history-grid" id="historyGrid">
+                <div class="history-empty" id="historyEmpty">
+                    <span class="empty-icon">📂</span>
+                    <p>No search history yet. Try generating a career plan above!</p>
+                </div>
+            </div>
+            <button class="btn btn-ghost btn-sm" id="clearHistoryBtn" onclick="clearHistory()" style="display:none;">
+                Clear History
+            </button>
+        </div>
+    </section>
+
+    <!-- ═══════════════ FOOTER ═══════════════ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-icon">⚡</span>
+                    <span class="logo-text">CareerForge <span class="logo-accent">AI</span></span>
+                    <p class="footer-tagline">AI-powered career guidance for the modern professional.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#role-input">Explore Roles</a>
+                    <a href="#dashboard">Dashboard</a>
+                    <a href="#history">History</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 CareerForge AI. Built with ❤️ and artificial intelligence.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ═══════════════ TOAST NOTIFICATION ═══════════════ -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- ═══════════════ ERROR MODAL ═══════════════ -->
+    <div class="modal-overlay" id="errorModal" style="display:none;">
+        <div class="modal-card glass-card">
+            <span class="modal-icon">⚠️</span>
+            <h3 class="modal-title" id="errorTitle">Something went wrong</h3>
+            <p class="modal-desc" id="errorDesc">Please try again later.</p>
+            <button class="btn btn-primary" onclick="closeErrorModal()">Try Again</button>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- PDF.js for real PDF text extraction -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <!-- Mammoth.js for DOCX text extraction -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+    <script src="resume-builder-script.js"></script>
+    <script>
+        /* Liquid metal chip ripple */
+        document.querySelectorAll('.chip').forEach(chip => {
+            chip.addEventListener('click', function(e) {
+                const rect = this.getBoundingClientRect();
+                const ripple = document.createElement('span');
+                ripple.className = 'chip-ripple';
+                ripple.style.left = (e.clientX - rect.left) + 'px';
+                ripple.style.top  = (e.clientY - rect.top)  + 'px';
+                this.appendChild(ripple);
+                ripple.addEventListener('animationend', () => ripple.remove());
+            });
+        });
+    </script>
+    <script src="ats-checker.js?v=3"></script>
+</body>
+
+</html>

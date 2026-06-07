@@ -1,0 +1,1811 @@
+/* ═══════════════════════════════════════════════════════════════════
+   RESUME BUILDER — Embedded Styles for CareerForge AI
+   All rules scoped under #resumeBuilderSection to avoid conflicts
+═══════════════════════════════════════════════════════════════════ */
+
+/* ── TAB SWITCHER ── */
+#resumeBuilderSection .rb-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 5px;
+  width: fit-content;
+}
+
+#resumeBuilderSection .rb-tab-btn {
+  background: transparent;
+  border: none;
+  color: rgba(255,255,255,0.5);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 8px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+#resumeBuilderSection .rb-tab-btn.active {
+  background: linear-gradient(135deg, #7c3aed, #4f46e5);
+  color: #fff;
+  box-shadow: 0 2px 12px rgba(124,58,237,0.4);
+}
+
+#resumeBuilderSection .rb-tab-btn:hover:not(.active) {
+  color: rgba(255,255,255,0.8);
+  background: rgba(255,255,255,0.06);
+}
+
+/* ── TAB PANELS ── */
+#resumeBuilderSection .rb-panel {
+  display: none;
+}
+#resumeBuilderSection .rb-panel.active {
+  display: block;
+}
+
+/* ══════════════════════════════════
+   FORM PANEL — 6-Step Multi-step Form
+══════════════════════════════════ */
+
+/* Progress bar */
+#resumeBuilderSection .rb-progress-wrap {
+  margin-bottom: 28px;
+}
+
+#resumeBuilderSection .rb-progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+#resumeBuilderSection .rb-step-label {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.45);
+  font-family: 'Inter', sans-serif;
+}
+
+#resumeBuilderSection .rb-step-dots {
+  display: flex;
+  gap: 6px;
+}
+
+#resumeBuilderSection .rb-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+  transition: all 0.3s ease;
+}
+
+#resumeBuilderSection .rb-dot.active {
+  background: #7c3aed;
+  box-shadow: 0 0 6px rgba(124,58,237,0.6);
+  transform: scale(1.2);
+}
+
+#resumeBuilderSection .rb-dot.done {
+  background: #4ade80;
+}
+
+#resumeBuilderSection .rb-progress-track {
+  height: 3px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+#resumeBuilderSection .rb-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #7c3aed, #4f46e5, #06b6d4);
+  border-radius: 99px;
+  transition: width 0.4s cubic-bezier(0.4,0,0.2,1);
+  width: 16.67%;
+}
+
+/* Form step panels */
+#resumeBuilderSection .rb-form-step {
+  display: none;
+  animation: rbStepIn 0.35s ease forwards;
+}
+
+@keyframes rbStepIn {
+  from { opacity: 0; transform: translateX(16px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+#resumeBuilderSection .rb-form-step.active {
+  display: block;
+}
+
+#resumeBuilderSection .rb-step-header {
+  margin-bottom: 22px;
+}
+
+#resumeBuilderSection .rb-step-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #a78bfa;
+  margin-bottom: 6px;
+  font-family: 'Inter', sans-serif;
+}
+
+#resumeBuilderSection .rb-step-header h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 4px;
+  font-family: 'Inter', sans-serif;
+}
+
+#resumeBuilderSection .rb-step-header h3 em {
+  font-style: normal;
+  background: linear-gradient(90deg, #a78bfa, #60a5fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+#resumeBuilderSection .rb-step-header p {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.45);
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Fields grid */
+#resumeBuilderSection .rb-fields-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+#resumeBuilderSection .rb-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+#resumeBuilderSection .rb-field-group.full {
+  grid-column: 1 / -1;
+}
+
+#resumeBuilderSection .rb-field-group label {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.55);
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.02em;
+}
+
+#resumeBuilderSection .rb-field-group label .rb-req {
+  color: #f87171;
+  margin-left: 2px;
+}
+
+#resumeBuilderSection .rb-field-group input,
+#resumeBuilderSection .rb-field-group textarea,
+#resumeBuilderSection .rb-field-group select {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 10px 13px;
+  color: #e2e8f0;
+  font-size: 0.875rem;
+  font-family: 'Inter', sans-serif;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+#resumeBuilderSection .rb-field-group input::placeholder,
+#resumeBuilderSection .rb-field-group textarea::placeholder {
+  color: rgba(255,255,255,0.2);
+}
+
+#resumeBuilderSection .rb-field-group input:focus,
+#resumeBuilderSection .rb-field-group textarea:focus,
+#resumeBuilderSection .rb-field-group select:focus {
+  border-color: rgba(124,58,237,0.6);
+  box-shadow: 0 0 0 3px rgba(124,58,237,0.12);
+}
+
+#resumeBuilderSection .rb-field-group input.error,
+#resumeBuilderSection .rb-field-group textarea.error {
+  border-color: rgba(248,113,113,0.6);
+}
+
+#resumeBuilderSection .rb-field-error {
+  font-size: 0.74rem;
+  color: #f87171;
+  min-height: 16px;
+  font-family: 'Inter', sans-serif;
+}
+
+/* select styling */
+#resumeBuilderSection .rb-field-group select {
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M2 4l4 4 4-4' stroke='rgba(255,255,255,0.4)' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  cursor: pointer;
+}
+
+#resumeBuilderSection .rb-field-group select option {
+  background: #1e1b4b;
+  color: #e2e8f0;
+}
+
+/* Entry cards (experience/education) */
+#resumeBuilderSection .rb-entry-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+#resumeBuilderSection .rb-entry-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+#resumeBuilderSection .rb-entry-card:hover {
+  border-color: rgba(124,58,237,0.3);
+}
+
+#resumeBuilderSection .rb-entry-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  cursor: pointer;
+  user-select: none;
+}
+
+#resumeBuilderSection .rb-entry-card-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  font-family: 'Inter', sans-serif;
+}
+
+#resumeBuilderSection .rb-entry-card-sub {
+  font-size: 0.76rem;
+  color: rgba(255,255,255,0.4);
+  margin-top: 2px;
+  font-family: 'Inter', sans-serif;
+}
+
+#resumeBuilderSection .rb-entry-card-actions {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+#resumeBuilderSection .rb-btn-icon {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.35);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 5px;
+  transition: color 0.15s, background 0.15s;
+  display: flex;
+  align-items: center;
+}
+
+#resumeBuilderSection .rb-btn-icon:hover {
+  color: #f87171;
+  background: rgba(248,113,113,0.1);
+}
+
+#resumeBuilderSection .rb-entry-card-body {
+  padding: 0 14px 14px;
+  display: none;
+}
+
+#resumeBuilderSection .rb-entry-card.expanded .rb-entry-card-body {
+  display: block;
+}
+
+#resumeBuilderSection .rb-entry-card-body .rb-fields-grid {
+  gap: 10px;
+}
+
+/* Add entry button */
+#resumeBuilderSection .rb-btn-add {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(124,58,237,0.1);
+  border: 1px dashed rgba(124,58,237,0.35);
+  border-radius: 8px;
+  color: #a78bfa;
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 9px 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Inter', sans-serif;
+  width: 100%;
+  justify-content: center;
+}
+
+#resumeBuilderSection .rb-btn-add:hover {
+  background: rgba(124,58,237,0.18);
+  border-color: rgba(124,58,237,0.6);
+  color: #c4b5fd;
+}
+
+/* Tag input */
+#resumeBuilderSection .rb-tag-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  min-height: 44px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 8px 10px;
+  cursor: text;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+#resumeBuilderSection .rb-tag-wrap:focus-within {
+  border-color: rgba(124,58,237,0.6);
+  box-shadow: 0 0 0 3px rgba(124,58,237,0.12);
+}
+
+#resumeBuilderSection .rb-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(124,58,237,0.2);
+  border: 1px solid rgba(124,58,237,0.35);
+  color: #c4b5fd;
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: 99px;
+  font-family: 'Inter', sans-serif;
+}
+
+#resumeBuilderSection .rb-tag-remove {
+  cursor: pointer;
+  opacity: 0.6;
+  display: flex;
+  align-items: center;
+  transition: opacity 0.15s;
+}
+
+#resumeBuilderSection .rb-tag-remove:hover { opacity: 1; }
+
+#resumeBuilderSection .rb-tag-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #e2e8f0;
+  font-size: 0.875rem;
+  font-family: 'Inter', sans-serif;
+  flex: 1;
+  min-width: 120px;
+}
+
+#resumeBuilderSection .rb-tag-input::placeholder {
+  color: rgba(255,255,255,0.2);
+}
+
+/* Tone cards */
+#resumeBuilderSection .rb-tone-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+#resumeBuilderSection .rb-tone-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 14px 10px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+#resumeBuilderSection .rb-tone-card input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+#resumeBuilderSection .rb-tone-card:hover {
+  border-color: rgba(124,58,237,0.4);
+  background: rgba(124,58,237,0.06);
+}
+
+#resumeBuilderSection .rb-tone-card.selected {
+  border-color: #7c3aed;
+  background: rgba(124,58,237,0.15);
+  box-shadow: 0 0 0 2px rgba(124,58,237,0.25);
+}
+
+#resumeBuilderSection .rb-tone-icon {
+  font-size: 1.4rem;
+}
+
+#resumeBuilderSection .rb-tone-name {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  font-family: 'Inter', sans-serif;
+}
+
+#resumeBuilderSection .rb-tone-desc {
+  font-size: 0.69rem;
+  color: rgba(255,255,255,0.4);
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.4;
+}
+
+#resumeBuilderSection .rb-tone-check {
+  display: none;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 18px;
+  height: 18px;
+  background: #7c3aed;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+#resumeBuilderSection .rb-tone-card.selected .rb-tone-check {
+  display: flex;
+}
+
+/* Review box */
+#resumeBuilderSection .rb-review-box {
+  background: rgba(124,58,237,0.07);
+  border: 1px solid rgba(124,58,237,0.2);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-top: 16px;
+}
+
+#resumeBuilderSection .rb-review-title {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #a78bfa;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+#resumeBuilderSection .rb-review-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+#resumeBuilderSection .rb-review-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+#resumeBuilderSection .rb-review-label {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.35);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: 'Inter', sans-serif;
+}
+
+#resumeBuilderSection .rb-review-value {
+  font-size: 0.82rem;
+  color: #e2e8f0;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+}
+
+#resumeBuilderSection .rb-review-value.empty {
+  color: rgba(255,255,255,0.25);
+  font-style: italic;
+}
+
+/* Form nav buttons */
+#resumeBuilderSection .rb-form-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+#resumeBuilderSection .rb-btn-prev,
+#resumeBuilderSection .rb-btn-next {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+#resumeBuilderSection .rb-btn-prev {
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.6);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+#resumeBuilderSection .rb-btn-prev:hover:not(:disabled) {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+}
+
+#resumeBuilderSection .rb-btn-prev:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+#resumeBuilderSection .rb-btn-next {
+  background: linear-gradient(135deg, #7c3aed, #4f46e5);
+  color: #fff;
+  box-shadow: 0 2px 12px rgba(124,58,237,0.35);
+}
+
+#resumeBuilderSection .rb-btn-next:hover {
+  box-shadow: 0 4px 20px rgba(124,58,237,0.5);
+  transform: translateY(-1px);
+}
+
+#resumeBuilderSection .rb-btn-next.submit {
+  background: linear-gradient(135deg, #059669, #0d9488);
+  box-shadow: 0 2px 12px rgba(5,150,105,0.35);
+}
+
+/* Cover letter result (in form panel) */
+#resumeBuilderSection .rb-cl-result {
+  margin-top: 24px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+#resumeBuilderSection .rb-cl-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+#resumeBuilderSection .rb-cl-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #a78bfa;
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+#resumeBuilderSection .rb-cl-actions {
+  display: flex;
+  gap: 8px;
+}
+
+#resumeBuilderSection .rb-btn-cl {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.6);
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 5px 13px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: 'Inter', sans-serif;
+}
+
+#resumeBuilderSection .rb-btn-cl:hover {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+}
+
+#resumeBuilderSection .rb-btn-cl.regen {
+  background: rgba(124,58,237,0.15);
+  border-color: rgba(124,58,237,0.3);
+  color: #a78bfa;
+}
+
+#resumeBuilderSection .rb-btn-cl.regen:hover {
+  background: rgba(124,58,237,0.25);
+}
+
+#resumeBuilderSection .rb-cl-body {
+  padding: 16px;
+}
+
+#resumeBuilderSection .rb-cl-text {
+  font-size: 0.83rem;
+  color: rgba(255,255,255,0.75);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin: 0;
+}
+
+/* ══════════════════════════════════
+   PREVIEW PANEL
+══════════════════════════════════ */
+
+#resumeBuilderSection .rb-preview-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Template bar */
+#resumeBuilderSection .rb-template-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  padding: 8px 12px;
+}
+
+#resumeBuilderSection .rb-template-bar-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.3);
+  font-family: 'Inter', sans-serif;
+  white-space: nowrap;
+}
+
+#resumeBuilderSection .rb-tpl-switcher {
+  display: flex;
+  gap: 6px;
+  flex: 1;
+}
+
+#resumeBuilderSection .rb-tpl-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 7px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: transparent;
+  color: rgba(255,255,255,0.45);
+  font-size: 0.78rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Inter', sans-serif;
+}
+
+#resumeBuilderSection .rb-tpl-btn:hover {
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.8);
+}
+
+#resumeBuilderSection .rb-tpl-btn.active {
+  background: linear-gradient(135deg, #7c3aed, #4f46e5);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(124,58,237,0.35);
+}
+
+#resumeBuilderSection .rb-download-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 16px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 7px;
+  color: rgba(255,255,255,0.7);
+  font-size: 0.78rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Inter', sans-serif;
+  white-space: nowrap;
+}
+
+#resumeBuilderSection .rb-download-btn:hover:not(:disabled) {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  border-color: rgba(255,255,255,0.2);
+}
+
+#resumeBuilderSection .rb-download-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Split view: form-side + preview-side */
+#resumeBuilderSection .rb-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+#resumeBuilderSection .rb-split-form {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 12px;
+  padding: 20px;
+  max-height: 700px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(124,58,237,0.3) transparent;
+}
+
+#resumeBuilderSection .rb-split-form::-webkit-scrollbar {
+  width: 4px;
+}
+
+#resumeBuilderSection .rb-split-form::-webkit-scrollbar-thumb {
+  background: rgba(124,58,237,0.3);
+  border-radius: 99px;
+}
+
+#resumeBuilderSection .rb-split-form-section {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+#resumeBuilderSection .rb-split-form-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+#resumeBuilderSection .rb-fs-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+#resumeBuilderSection .rb-fs-title {
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: rgba(255,255,255,0.5);
+  font-family: 'Inter', sans-serif;
+}
+
+#resumeBuilderSection .rb-btn-add-sm {
+  font-size: 0.72rem;
+  padding: 3px 10px;
+  background: rgba(124,58,237,0.12);
+  border: 1px solid rgba(124,58,237,0.25);
+  border-radius: 5px;
+  color: #a78bfa;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  transition: all 0.15s;
+}
+
+#resumeBuilderSection .rb-btn-add-sm:hover {
+  background: rgba(124,58,237,0.22);
+}
+
+#resumeBuilderSection .rb-entry-block {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 10px;
+}
+
+#resumeBuilderSection .rb-entry-block-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+#resumeBuilderSection .rb-entry-block-num {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: 'Inter', sans-serif;
+}
+
+#resumeBuilderSection .rb-btn-remove {
+  background: none;
+  border: none;
+  color: rgba(248,113,113,0.5);
+  cursor: pointer;
+  font-size: 1.1rem;
+  line-height: 1;
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition: all 0.15s;
+}
+
+#resumeBuilderSection .rb-btn-remove:hover {
+  color: #f87171;
+  background: rgba(248,113,113,0.1);
+}
+
+#resumeBuilderSection .rb-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+/* Cover letter section in preview */
+#resumeBuilderSection .rb-cl-gen-section {
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding-top: 16px;
+  margin-top: 4px;
+}
+
+#resumeBuilderSection .rb-cl-output-wrap {
+  margin-top: 10px;
+  position: relative;
+}
+
+#resumeBuilderSection .rb-cl-output {
+  min-height: 80px;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.65);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.65;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+#resumeBuilderSection .rb-cl-output.placeholder {
+  color: rgba(255,255,255,0.2);
+  font-style: italic;
+}
+
+#resumeBuilderSection .rb-cl-output.error {
+  color: #f87171;
+}
+
+#resumeBuilderSection .rb-btn-gen-cl {
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(135deg, rgba(124,58,237,0.25), rgba(79,70,229,0.25));
+  border: 1px solid rgba(124,58,237,0.35);
+  border-radius: 8px;
+  color: #c4b5fd;
+  font-size: 0.83rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+
+#resumeBuilderSection .rb-btn-gen-cl:hover:not(:disabled) {
+  background: linear-gradient(135deg, rgba(124,58,237,0.4), rgba(79,70,229,0.4));
+  box-shadow: 0 0 16px rgba(124,58,237,0.25);
+}
+
+#resumeBuilderSection .rb-btn-gen-cl:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+#resumeBuilderSection .rb-btn-copy-cl {
+  font-size: 0.72rem;
+  padding: 4px 10px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 5px;
+  color: rgba(255,255,255,0.5);
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.15s;
+  display: none;
+  margin-top: 8px;
+}
+
+#resumeBuilderSection .rb-btn-copy-cl:hover {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+}
+
+/* ══════════════════════════════════
+   RESUME SHEETS (Templates)
+══════════════════════════════════ */
+
+#resumeBuilderSection .rb-preview-panel {
+  position: sticky;
+  top: 80px;
+}
+
+#resumeBuilderSection .rb-panel-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.3);
+  margin-bottom: 10px;
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+#resumeBuilderSection .rb-panel-label::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 8px rgba(74,222,128,0.8);
+  animation: rbLivePulse 2s ease infinite;
+}
+
+@keyframes rbLivePulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+#resumeBuilderSection .rb-resume-preview-wrap {
+  background: #e5e7eb;
+  border-radius: 8px;
+  padding: 8px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+
+/* ── CLASSIC TEMPLATE ── */
+#resumeBuilderSection .rb-tpl-classic {
+  background: #ffffff;
+  font-family: 'Georgia', serif;
+  padding: 32px 32px;
+  min-height: 420px;
+  border-radius: 4px;
+  color: #1a1a2e;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+#resumeBuilderSection .rb-tpl-classic .rbt-name {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: #1a1a2e;
+  margin-bottom: 2px;
+}
+
+#resumeBuilderSection .rb-tpl-classic .rbt-title {
+  font-size: 11px;
+  color: #6b7280;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+#resumeBuilderSection .rb-tpl-classic .rbt-divider {
+  height: 1px;
+  background: #1a1a2e;
+  margin: 8px 0 6px;
+}
+
+#resumeBuilderSection .rb-tpl-classic .rbt-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 9px;
+  color: #6b7280;
+  margin-bottom: 10px;
+}
+
+#resumeBuilderSection .rb-tpl-classic .rbt-section-title {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #1a1a2e;
+  border-bottom: 1px solid #d1d5db;
+  padding-bottom: 3px;
+  margin: 12px 0 7px;
+}
+
+#resumeBuilderSection .rb-tpl-classic .rbt-summary {
+  font-size: 10px;
+  color: #374151;
+  line-height: 1.55;
+}
+
+#resumeBuilderSection .rb-tpl-classic .rbt-entry {
+  margin-bottom: 8px;
+}
+
+#resumeBuilderSection .rb-tpl-classic .rbt-entry-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+
+#resumeBuilderSection .rb-tpl-classic .rbt-entry-title {
+  font-weight: 700;
+  font-size: 10.5px;
+  color: #111827;
+}
+
+#resumeBuilderSection .rb-tpl-classic .rbt-entry-date {
+  font-size: 9px;
+  color: #9ca3af;
+  white-space: nowrap;
+}
+
+#resumeBuilderSection .rb-tpl-classic .rbt-entry-sub {
+  font-size: 9.5px;
+  color: #4b5563;
+  margin: 1px 0;
+  font-style: italic;
+}
+
+#resumeBuilderSection .rb-tpl-classic .rbt-entry-desc {
+  font-size: 9.5px;
+  color: #374151;
+  margin-top: 3px;
+  line-height: 1.5;
+}
+
+#resumeBuilderSection .rb-tpl-classic .rbt-skills-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+#resumeBuilderSection .rb-tpl-classic .rbt-skill-group { flex: 1; min-width: 80px; }
+
+#resumeBuilderSection .rb-tpl-classic .rbt-skill-label {
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #6b7280;
+  margin-bottom: 4px;
+}
+
+#resumeBuilderSection .rbt-skill-tag {
+  display: inline-block;
+  font-size: 8.5px;
+  background: #f3f4f6;
+  color: #374151;
+  border-radius: 3px;
+  padding: 2px 6px;
+  margin: 2px 2px 0 0;
+}
+
+#resumeBuilderSection .rbt-placeholder {
+  font-size: 9px;
+  color: #d1d5db;
+  font-style: italic;
+}
+
+/* ── MODERN TEMPLATE ── */
+#resumeBuilderSection .rb-tpl-modern {
+  display: none;
+  background: #ffffff;
+  font-family: 'DM Sans', 'Inter', sans-serif;
+  min-height: 420px;
+  border-radius: 4px;
+  color: #1e1b4b;
+  font-size: 11px;
+  flex-direction: row;
+  overflow: hidden;
+}
+
+#resumeBuilderSection .rb-tpl-modern.active-rb-tpl {
+  display: flex;
+}
+
+#resumeBuilderSection .rbt-mo-sidebar {
+  width: 38%;
+  background: linear-gradient(160deg, #312e81, #1e1b4b);
+  color: rgba(255,255,255,0.9);
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+#resumeBuilderSection .rbt-mo-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7c3aed, #06b6d4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+#resumeBuilderSection .rbt-mo-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 2px;
+  line-height: 1.3;
+}
+
+#resumeBuilderSection .rbt-mo-title {
+  font-size: 9px;
+  color: rgba(196,181,253,0.8);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-bottom: 14px;
+}
+
+#resumeBuilderSection .rbt-mo-section {
+  margin-bottom: 12px;
+}
+
+#resumeBuilderSection .rbt-mo-section-title {
+  font-size: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(196,181,253,0.6);
+  margin-bottom: 5px;
+  padding-bottom: 3px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+#resumeBuilderSection .rbt-mo-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 8.5px;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 3px;
+  word-break: break-all;
+}
+
+#resumeBuilderSection .rb-mo-tag {
+  display: inline-block;
+  font-size: 8px;
+  background: rgba(196,181,253,0.12);
+  border: 1px solid rgba(196,181,253,0.2);
+  color: rgba(196,181,253,0.85);
+  padding: 2px 7px;
+  border-radius: 99px;
+  margin: 2px 2px 0 0;
+}
+
+#resumeBuilderSection .rbt-mo-main {
+  flex: 1;
+  padding: 24px 18px;
+  overflow: hidden;
+}
+
+#resumeBuilderSection .rbt-mo-main-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1e1b4b;
+  margin-bottom: 2px;
+}
+
+#resumeBuilderSection .rbt-mo-main-title {
+  font-size: 9.5px;
+  color: #7c3aed;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-bottom: 14px;
+}
+
+#resumeBuilderSection .rbt-mo-section-main {
+  margin-bottom: 12px;
+}
+
+#resumeBuilderSection .rbt-mo-section-title-main {
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #7c3aed;
+  margin-bottom: 5px;
+  padding-bottom: 3px;
+  border-bottom: 2px solid #7c3aed;
+}
+
+#resumeBuilderSection .rbt-mo-summary {
+  font-size: 9.5px;
+  color: #374151;
+  line-height: 1.55;
+}
+
+#resumeBuilderSection .rbt-mo-entry {
+  margin-bottom: 8px;
+}
+
+#resumeBuilderSection .rbt-mo-entry-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+
+#resumeBuilderSection .rbt-mo-entry-title {
+  font-weight: 700;
+  font-size: 10px;
+  color: #111827;
+}
+
+#resumeBuilderSection .rbt-mo-entry-date {
+  font-size: 8.5px;
+  color: #9ca3af;
+  white-space: nowrap;
+}
+
+#resumeBuilderSection .rbt-mo-entry-sub {
+  font-size: 9px;
+  color: #7c3aed;
+  margin: 1px 0;
+}
+
+#resumeBuilderSection .rbt-mo-entry-desc {
+  font-size: 9px;
+  color: #374151;
+  margin-top: 3px;
+  line-height: 1.5;
+}
+
+#resumeBuilderSection .rbt-mo-placeholder {
+  font-size: 9px;
+  color: #d1d5db;
+  font-style: italic;
+}
+
+/* ── MINIMAL TEMPLATE ── */
+#resumeBuilderSection .rb-tpl-minimal {
+  display: none;
+  background: #faf9f7;
+  font-family: 'DM Sans', 'Inter', sans-serif;
+  padding: 32px;
+  min-height: 420px;
+  border-radius: 4px;
+  color: #1a1a1a;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+#resumeBuilderSection .rb-tpl-minimal.active-rb-tpl {
+  display: block;
+}
+
+#resumeBuilderSection .rbt-mn-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 14px;
+}
+
+#resumeBuilderSection .rbt-mn-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f0f0f;
+  letter-spacing: -0.01em;
+}
+
+#resumeBuilderSection .rbt-mn-title {
+  font-size: 10px;
+  color: #6b7280;
+  margin-top: 2px;
+}
+
+#resumeBuilderSection .rbt-mn-contact {
+  text-align: right;
+  font-size: 8.5px;
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+#resumeBuilderSection .rbt-mn-rule {
+  height: 2px;
+  background: #0f0f0f;
+  margin-bottom: 14px;
+}
+
+#resumeBuilderSection .rbt-mn-row {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 12px;
+}
+
+#resumeBuilderSection .rbt-mn-label {
+  width: 72px;
+  flex-shrink: 0;
+  font-size: 8.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #9ca3af;
+  padding-top: 1px;
+}
+
+#resumeBuilderSection .rbt-mn-content {
+  flex: 1;
+  border-left: 1px solid #e5e7eb;
+  padding-left: 12px;
+}
+
+#resumeBuilderSection .rbt-mn-summary {
+  font-size: 9.5px;
+  color: #374151;
+  line-height: 1.55;
+}
+
+#resumeBuilderSection .rbt-mn-entry {
+  margin-bottom: 8px;
+}
+
+#resumeBuilderSection .rbt-mn-entry-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+#resumeBuilderSection .rbt-mn-entry-title {
+  font-weight: 700;
+  font-size: 10px;
+  color: #111827;
+}
+
+#resumeBuilderSection .rbt-mn-entry-date {
+  font-size: 8.5px;
+  color: #9ca3af;
+  white-space: nowrap;
+}
+
+#resumeBuilderSection .rbt-mn-entry-sub {
+  font-size: 9px;
+  color: #4b5563;
+  font-style: italic;
+  margin: 1px 0;
+}
+
+#resumeBuilderSection .rbt-mn-entry-desc {
+  font-size: 9px;
+  color: #374151;
+  line-height: 1.5;
+  margin-top: 2px;
+}
+
+#resumeBuilderSection .rbt-mn-skills-grid {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+#resumeBuilderSection .rbt-mn-skill-cat {
+  font-size: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #9ca3af;
+  margin-bottom: 4px;
+}
+
+#resumeBuilderSection .rb-mn-tag {
+  display: inline-block;
+  font-size: 8.5px;
+  border: 1px solid #d1d5db;
+  color: #4b5563;
+  padding: 2px 7px;
+  border-radius: 3px;
+  margin: 2px 2px 0 0;
+}
+
+#resumeBuilderSection .rbt-mn-placeholder {
+  font-size: 9px;
+  color: #d1d5db;
+  font-style: italic;
+}
+
+/* ── PDF Overlay ── */
+#resumeBuilderSection .rb-pdf-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(4px);
+  z-index: 10000;
+  align-items: center;
+  justify-content: center;
+}
+
+#resumeBuilderSection .rb-pdf-overlay.visible {
+  display: flex;
+}
+
+#resumeBuilderSection .rb-pdf-card {
+  background: rgba(15,12,48,0.95);
+  border: 1px solid rgba(124,58,237,0.3);
+  border-radius: 16px;
+  padding: 36px 40px;
+  text-align: center;
+  min-width: 260px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+
+#resumeBuilderSection .rb-pdf-spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid rgba(124,58,237,0.2);
+  border-top-color: #7c3aed;
+  border-radius: 50%;
+  animation: rbSpin 0.8s linear infinite;
+  margin: 0 auto 14px;
+}
+
+@keyframes rbSpin {
+  to { transform: rotate(360deg); }
+}
+
+#resumeBuilderSection .rb-pdf-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin-bottom: 6px;
+  font-family: 'Inter', sans-serif;
+}
+
+#resumeBuilderSection .rb-pdf-sub {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.4);
+  font-family: 'Inter', sans-serif;
+  margin-bottom: 14px;
+}
+
+#resumeBuilderSection .rb-pdf-progress-track {
+  height: 3px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+#resumeBuilderSection .rb-pdf-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #7c3aed, #06b6d4);
+  border-radius: 99px;
+  transition: width 0.4s ease;
+  width: 0%;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  #resumeBuilderSection .rb-split {
+    grid-template-columns: 1fr;
+  }
+  #resumeBuilderSection .rb-preview-panel {
+    position: static;
+  }
+  #resumeBuilderSection .rb-fields-grid {
+    grid-template-columns: 1fr;
+  }
+  #resumeBuilderSection .rb-tone-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  #resumeBuilderSection .rb-tpl-modern {
+    flex-direction: column;
+  }
+  #resumeBuilderSection .rbt-mo-sidebar {
+    width: 100%;
+  }
+  #resumeBuilderSection .rb-template-bar {
+    flex-wrap: wrap;
+  }
+}
+
+/* ══════════════════════════════════════════════════════
+   STEP 5 — STYLE SELECTION & LIVE PREVIEW
+══════════════════════════════════════════════════════ */
+
+/* Two-column layout */
+#resumeBuilderSection .rb-style-layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+/* LEFT: Picker column */
+#resumeBuilderSection .rb-style-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Style card grid (2×3) */
+#resumeBuilderSection .rb-style-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+/* Each style card */
+#resumeBuilderSection .rb-style-card {
+  background: rgba(255,255,255,0.03);
+  border: 1.5px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 10px 10px 10px;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  position: relative;
+  outline: none;
+}
+
+#resumeBuilderSection .rb-style-card:hover {
+  border-color: rgba(124,58,237,0.4);
+  background: rgba(124,58,237,0.06);
+  transform: translateY(-1px);
+}
+
+#resumeBuilderSection .rb-style-card.selected {
+  border-color: #7c3aed;
+  background: rgba(124,58,237,0.12);
+  box-shadow: 0 0 0 2px rgba(124,58,237,0.25), 0 4px 16px rgba(124,58,237,0.18);
+}
+
+#resumeBuilderSection .rb-style-check {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  width: 18px;
+  height: 18px;
+  background: #7c3aed;
+  border-radius: 50%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+#resumeBuilderSection .rb-style-card.selected .rb-style-check {
+  display: flex;
+}
+
+/* Thumbnail mockup */
+#resumeBuilderSection .rb-style-thumb {
+  width: 100%;
+  height: 70px;
+  border-radius: 7px;
+  margin-bottom: 8px;
+  overflow: hidden;
+  position: relative;
+  background: #fff;
+}
+
+/* Thumbnail content spans */
+#resumeBuilderSection .rb-thumb-lines { padding: 7px 8px; display: flex; flex-direction: column; gap: 4px; }
+#resumeBuilderSection .rb-thumb-l1 { display: block; height: 6px; border-radius: 3px; background: #1e293b; width: 70%; }
+#resumeBuilderSection .rb-thumb-l2 { display: block; height: 4px; border-radius: 2px; background: #94a3b8; width: 50%; }
+#resumeBuilderSection .rb-thumb-l3 { display: block; height: 3px; border-radius: 2px; background: #e2e8f0; width: 85%; }
+#resumeBuilderSection .rb-thumb-l4 { display: block; height: 3px; border-radius: 2px; background: #e2e8f0; width: 65%; }
+
+/* Executive thumbnail */
+#resumeBuilderSection .rb-thumb-executive { background: #fff; }
+#resumeBuilderSection .rb-thumb-executive .rb-thumb-bar {
+  height: 22px; background: #1e293b; width: 100%; margin-bottom: 4px;
+}
+#resumeBuilderSection .rb-thumb-executive .rb-thumb-l1 { background: #6366f1; width: 60%; }
+
+/* Modern thumbnail */
+#resumeBuilderSection .rb-thumb-modern { display: flex !important; padding: 0 !important; background: #fff; }
+#resumeBuilderSection .rb-thumb-sidebar {
+  width: 36%; background: #0f172a; height: 100%; flex-shrink: 0;
+}
+#resumeBuilderSection .rb-thumb-main { flex: 1; padding: 7px 8px; display: flex; flex-direction: column; gap: 4px; }
+#resumeBuilderSection .rb-thumb-modern .rb-thumb-l1 { background: #6366f1; width: 75%; }
+#resumeBuilderSection .rb-thumb-modern .rb-thumb-l2 { background: #e2e8f0; width: 90%; }
+#resumeBuilderSection .rb-thumb-modern .rb-thumb-l3 { background: #e2e8f0; width: 70%; }
+
+/* Minimal thumbnail */
+#resumeBuilderSection .rb-thumb-minimal { background: #faf9f7; padding: 10px; display: flex; flex-direction: column; gap: 4px; }
+#resumeBuilderSection .rb-thumb-name-big { height: 8px; background: #111; border-radius: 3px; width: 65%; margin-bottom: 2px; }
+#resumeBuilderSection .rb-thumb-rule { height: 1.5px; background: #111; width: 100%; margin-bottom: 2px; }
+#resumeBuilderSection .rb-thumb-minimal .rb-thumb-l1 { background: #6b7280; width: 80%; }
+#resumeBuilderSection .rb-thumb-minimal .rb-thumb-l2 { background: #d1d5db; width: 95%; }
+#resumeBuilderSection .rb-thumb-minimal .rb-thumb-l3 { background: #d1d5db; width: 75%; }
+
+/* Creative thumbnail */
+#resumeBuilderSection .rb-thumb-creative { background: #fff; }
+#resumeBuilderSection .rb-thumb-circle {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: linear-gradient(135deg, #7c3aed, #2563eb);
+  position: absolute; top: 8px; left: 8px;
+}
+#resumeBuilderSection .rb-thumb-creative .rb-thumb-lines { padding-left: 42px; padding-top: 8px; }
+#resumeBuilderSection .rb-thumb-creative .rb-thumb-l1 { background: #7c3aed; }
+
+/* Corporate thumbnail */
+#resumeBuilderSection .rb-thumb-corporate { background: #fff; }
+#resumeBuilderSection .rb-thumb-border-left {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 5px;
+  background: #1d4ed8;
+}
+#resumeBuilderSection .rb-thumb-corporate .rb-thumb-lines { padding-left: 14px; }
+#resumeBuilderSection .rb-thumb-corporate .rb-thumb-l1 { background: #1d4ed8; }
+
+/* Tech thumbnail */
+#resumeBuilderSection .rb-thumb-tech { background: #0d1117; }
+#resumeBuilderSection .rb-thumb-code-header {
+  height: 14px; background: #161b22; border-bottom: 1px solid #30363d; width: 100%;
+}
+#resumeBuilderSection .rb-thumb-tech .rb-thumb-lines { padding-top: 4px; }
+#resumeBuilderSection .rb-thumb-tech .rb-thumb-l1 { background: #3fb950; }
+#resumeBuilderSection .rb-thumb-tech .rb-thumb-l2 { background: #30363d; }
+#resumeBuilderSection .rb-thumb-tech .rb-thumb-l3 { background: #30363d; }
+#resumeBuilderSection .rb-thumb-tech .rb-thumb-l4 { background: #21262d; }
+#resumeBuilderSection .rb-thumb-tech .rb-thumb-l1.green { background: #3fb950; }
+
+/* Style card label */
+#resumeBuilderSection .rb-style-info { padding: 0 2px; }
+#resumeBuilderSection .rb-style-name {
+  font-size: 0.8rem; font-weight: 700; color: #e2e8f0; font-family: 'Inter', sans-serif; margin-bottom: 1px;
+}
+#resumeBuilderSection .rb-style-desc {
+  font-size: 0.7rem; color: rgba(255,255,255,0.35); font-family: 'Inter', sans-serif; line-height: 1.3;
+}
+
+/* Generate PDF button (prominent) */
+#resumeBuilderSection .rb-generate-pdf-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 13px 20px;
+  background: linear-gradient(135deg, #059669, #0d9488);
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 0.92rem;
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  box-shadow: 0 3px 16px rgba(5,150,105,0.35);
+  letter-spacing: 0.01em;
+}
+
+#resumeBuilderSection .rb-generate-pdf-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(5,150,105,0.5);
+}
+
+#resumeBuilderSection .rb-generate-pdf-btn:active {
+  transform: translateY(0);
+}
+
+#resumeBuilderSection .rb-generate-pdf-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* RIGHT: Live Preview Panel */
+#resumeBuilderSection .rb-live-preview-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: sticky;
+  top: 20px;
+}
+
+#resumeBuilderSection .rb-live-preview-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.5);
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+#resumeBuilderSection .rb-lp-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 6px rgba(74,222,128,0.6);
+  animation: rbLpPulse 2s ease-in-out infinite;
+}
+
+@keyframes rbLpPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.8); }
+}
+
+#resumeBuilderSection .rb-live-preview-frame {
+  background: #fff;
+  border-radius: 12px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-height: 540px;
+  max-height: 620px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.06);
+  transition: box-shadow 0.3s ease;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0,0,0,0.15) transparent;
+}
+
+#resumeBuilderSection .rb-live-preview-frame::-webkit-scrollbar { width: 5px; }
+#resumeBuilderSection .rb-live-preview-frame::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.12); border-radius: 99px;
+}
+
+/* Responsive */
+@media (max-width: 860px) {
+  #resumeBuilderSection .rb-style-layout {
+    grid-template-columns: 1fr;
+  }
+  #resumeBuilderSection .rb-live-preview-panel {
+    position: static;
+  }
+  #resumeBuilderSection .rb-live-preview-frame {
+    min-height: 360px;
+  }
+}
+
